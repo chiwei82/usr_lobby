@@ -26,7 +26,6 @@ web$html_filename <- "carousel.html"
 
 ```
 
-
 ### carousel
 
 ```{r carousel, drake=F}
@@ -92,7 +91,6 @@ validlink <- stringr::str_replace(imglink,
 generate_carousel_item(href="#toycard", card4)
 ```
 
-
 ```{r pack_carousel_items}
 pack_carousel_items <- function(...){
   list_args <- list(...)
@@ -113,7 +111,6 @@ generate_carousel_item <- function(href, ...){
 ```
 
 #### card4
-
 
 ```{r card4, drake=F}
 card4 <- {
@@ -175,15 +172,12 @@ htmltools::browsable(card1)
 https://cms.carrier.ntpu.edu.tw/uploads/1_c1d4a362b5.jpeg
 
 ```{r poster_toy, drake=T}
-tags$div(
-  tags$img(
-    class="responsive-img",
-  src="https://cms.carrier.ntpu.edu.tw/uploads/1_c1d4a362b5.jpeg"
-  )
+poster_toy <- tagList(
+  tags$img(class="responsive-img",
+            src="https://cms.carrier.ntpu.edu.tw/uploads/1_c1d4a362b5.jpeg"),
+  tags$a(class="z-index:1 bottomright waves-effect waves-light btn"," button")
 )
-
 ```
-
 
 ```{r}
 htmltools::browsable(poster_toy)
@@ -198,8 +192,6 @@ label_activity <- tags$div("活動")
 ```{r}
 htmltools::browsable(label_activity)
 ```
-
-
 
 ### greenbtn
 
@@ -257,9 +249,7 @@ cardHolder <- function(){
 }
 ```
 
-
 ### Body Tags
-
 
 ```{r bodyTags, drake=T}
 bodyTags <- {
@@ -278,7 +268,6 @@ bodyTags <- {
   )
 }
 ```
-
 
 ## HTML Structure
 
@@ -328,7 +317,6 @@ myDependency <- htmltools::htmlDependency(
 
   * If src is in other path, use `web$config_cssJsPath("your_path")` in **makecondition** -- no need to change `web$cssJsPath` (it will change accordingly).
 
-
 ```{r local_jquery}
 local_jquery <- 
   htmltools::htmlDependency(
@@ -342,7 +330,6 @@ local_jquery <-
 
 ### Attach dependency
 
-
 ```{r html_complete}
 html_complete <- 
   htmltools::tagList(
@@ -354,7 +341,6 @@ html_complete <-
 ```
 
   * If not using jquery from htmlwidgets, replace `local_jquery` with `web$htmlDependencies$jquery()`
-
 
 ## Save
 
@@ -372,11 +358,6 @@ htmltools::save_html(
 web$browse()
 ```
 
-
-
-
-
 ## JS
-
 
 <!--JS end-->

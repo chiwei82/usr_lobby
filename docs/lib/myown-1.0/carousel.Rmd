@@ -175,15 +175,12 @@ htmltools::browsable(card1)
 https://cms.carrier.ntpu.edu.tw/uploads/1_c1d4a362b5.jpeg
 
 ```{r poster_toy, drake=T}
-tags$div(
-  tags$img(
-    class="responsive-img",
-  src="https://cms.carrier.ntpu.edu.tw/uploads/1_c1d4a362b5.jpeg"
-  )
+poster_toy <- tagList(
+  tags$img(class="responsive-img",
+            src="https://cms.carrier.ntpu.edu.tw/uploads/1_c1d4a362b5.jpeg"),
+  tags$a(class="z-index:1 bottomright waves-effect waves-light btn"," button")
 )
-
 ```
-
 
 ```{r}
 htmltools::browsable(poster_toy)
